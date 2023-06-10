@@ -10,6 +10,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ShopCartComponent } from './shop-cart/shop-cart.component';
+import { ItemCartComponent } from './shop-cart/item-cart/item-cart.component';
+import { SectionComponent } from './section/section.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AboutUsComponent,
     ContactComponent,
     HomeComponent,
+    ShopCartComponent,
+    ItemCartComponent,
+    SectionComponent,
   ],
   imports: [
     BrowserModule,
