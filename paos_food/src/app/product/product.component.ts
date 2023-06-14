@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Producto } from '../producto';
 
 @Component({
   selector: 'app-product',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class ProductComponent {
 
-  productos!: any[];
+  productos!: Producto[];
   //Filtro de la api a componentes individuales del producto
   constructor() {
     let productos=JSON.parse(localStorage.getItem('productos')!);
@@ -15,8 +16,8 @@ export class ProductComponent {
     const array=Object.values(productos.data);
 
     if(productos){
-
-      this.productos=array;
+      let arregloCorrec=array as Producto[];
+      this.productos=arregloCorrec;
     }
 
   }
