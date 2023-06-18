@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { ItemCartComponent } from './shop-cart/item-cart/item-cart.component';
 import { SectionComponent } from './section/section.component';
+import { ProductoIndComponent } from './producto-ind/producto-ind.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,14 @@ import { SectionComponent } from './section/section.component';
     ShopCartComponent,
     ItemCartComponent,
     SectionComponent,
+    ProductoIndComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

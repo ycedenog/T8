@@ -1,0 +1,41 @@
+#header {
+
+	background-size:     cover;                    
+	background-repeat:   no-repeat;
+	background-position: center center;
+	height: 30vh;
+	width: 100vw;
+} 
+
+#content {
+	height: 70vh;
+	width: 100vw;	
+}
+
+h1 {
+	color: #652e48;
+	font-size: 1.8rem;
+}
+
+.card-body {
+	padding: 0;
+
+}
+
+a {
+	text-decoration: none;
+}
+
+mat-toolbar{
+	background-color:transparent
+}
+
+mat-toolbar button{
+	background-color:transparent;
+	border-color: transparent;
+	
+}
+
+mat-icon{
+	color: white;
+}

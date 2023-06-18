@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ResourcesService } from './resources.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'paos_food';
+
+  constructor(private resourcesService: ResourcesService) { }
 }
