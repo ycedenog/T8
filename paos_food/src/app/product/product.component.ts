@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Producto } from '../producto';
+import { ProductService } from '../services/product/product.service';
 
 @Component({
   selector: 'app-product',
@@ -8,18 +9,25 @@ import { Producto } from '../producto';
 })
 export class ProductComponent {
 
-  productos!: Producto[];
+  starters!: Producto[];
+  breakfast!: Producto[];
+  lunch!: Producto[];
+  dinner!: Producto[];
   //Filtro de la api a componentes individuales del producto
-  constructor() {
-    let productos=JSON.parse(localStorage.getItem('productos')!);
+  constructor(public ProductService: ProductService) {
+    this.ProductService.getProduct().subscribe((res:any)=>{
+      let products = res["products"]//Object.values(res)
+      const array=Object.values(products);
+      if (products){
+        let parsed_products=array as Producto[];
+        this.starters = parsed_products.filter((product: Producto)=>{return product.category==="Starter"})
+        this.breakfast = parsed_products.filter((product: Producto)=>{return product.category==="Breakfast"})
+        this.lunch = parsed_products.filter((product: Producto)=>{return product.category==="Luch"})
+        this.dinner = parsed_products.filter((product: Producto)=>{return product.category==="Dinner"})
+        // this.productos = parsed_products
+      }
 
-    const array=Object.values(productos);
-
-    if(productos){
-      let arregloCorrec=array as Producto[];
-      this.productos=arregloCorrec;
-    }
-
+    })
   }
 
 }
