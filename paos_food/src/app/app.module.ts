@@ -15,6 +15,7 @@ import { ItemCartComponent } from './shop-cart/item-cart/item-cart.component';
 import { SectionComponent } from './section/section.component';
 import { ProductoIndComponent } from './producto-ind/producto-ind.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     ItemCartComponent,
     SectionComponent,
     ProductoIndComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
