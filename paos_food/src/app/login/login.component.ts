@@ -8,12 +8,17 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  email: string = '';
+  password: string = '';
+  
   constructor(private router:Router){
 
   }
 
   login() {
-    this.router.navigate(['/home']);
+    console.log(this.email);
+    console.log(this.password)
+    //this.router.navigate(['/home']);
   }
 
 }

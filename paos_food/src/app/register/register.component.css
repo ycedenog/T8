@@ -1,0 +1,15 @@
+#container_logo {
+    height: 120px; /* Establece la altura deseada para el contenedor */
+  }
+  
+  #container_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #logoPaos {
+    max-height: 100%; /* Establece la altura máxima de la imagen al 100% del contenedor */
+    max-width: 100%; /* Establece el ancho máximo de la imagen al 100% del contenedor */
+  }
+  

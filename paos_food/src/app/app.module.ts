@@ -16,6 +16,9 @@ import { SectionComponent } from './section/section.component';
 import { ProductoIndComponent } from './producto-ind/producto-ind.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,8 @@ import { LoginComponent } from './login/login.component';
     SectionComponent,
     ProductoIndComponent,
     LoginComponent,
+    RegisterComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

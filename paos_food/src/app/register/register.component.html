@@ -1,0 +1,97 @@
+<div class="container py-5">
+    <div class="row rounded-3 border shadow">
+        <div class="col text-center">
+            <img src="assets/img/logo/food.jfif" class="img-fluid">
+        </div>
+        <div class="col pt-1">
+            <h2 class="fw-bold text-center pt-2 mb-2">Regístrate en</h2>
+            <div class="container" id="container_logo">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6 text-center" id="container_img">
+                        <img src="/assets/img/logo/logoPaosRed.png" alt="logoWord" id="logoPaos" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="container col-sm-8 py-3">
+                <div class="row">
+                  <div class="col">
+                    <div class="form-floating mb-3">
+                      <input type="text" [(ngModel)]="first_name" name="nombre" class="form-control" id="floatingInputFirstName" placeholder="Nombre" required>
+                      <label for="floatingInputFirstName">Nombre</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-floating mb-3">
+                      <input type="text" [(ngModel)]="last_name" name="apellido" class="form-control" id="floatingInputLastName" placeholder="Apellido" required>
+                      <label for="floatingInputLastName">Apellido</label>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="form-floating mb-3">
+                  <input type="text" [(ngModel)]="username" name="username" class="form-control" id="floatingInputUsername" placeholder="Nombre de Usuario" required>
+                  <label for="floatingInputUsername">Nombre de Usuario</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="email" [(ngModel)]="email" name="email" class="form-control" id="floatingInputEmail" placeholder="name@example.com" required>
+                  <label for="floatingInputEmail">Correo electrónico</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" [(ngModel)]="password" name="password" class="form-control" id="floatingPassword" placeholder="Contraseña" required>
+                  <label for="floatingPassword">Contraseña</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" [(ngModel)]="confirm_password" name="confirm_password" class="form-control" id="floatingConfirmPassword" placeholder="Contraseña" required>
+                  <label for="floatingConfirmPassword">Confirmar Contraseña</label>
+                </div>
+              
+                <div class="text-center d-grid">
+                  <button (click)="register()" type="submit" class="btn btn-primary rounded-2">Register</button>
+                </div>
+              </div>
+              
+
+
+            <!-- <div class="container col-sm-8 py-3">
+                
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <input type="text" [(ngModel)]="first_name" name="nombre" class="form-control" id="floatingInput" placeholder="Nombre" required="required">
+                        <label for="floatingInput">Nombre</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" [(ngModel)]="last_name" name="apellido" class="form-control" id="floatingInput" placeholder="Apellido" required="required">
+                        <label for="floatingInput">Apellido</label>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" [(ngModel)]="username" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required="required">
+                    <label for="floatingInput">Nombre de Usuario</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" [(ngModel)]="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required="required">
+                    <label for="floatingInput">Correo electrónico</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" [(ngModel)]="password" name="password" class="form-control" id="floatingPassword" placeholder="Contraseña" required="required">
+                    <label for="floatingInput">Contraseña</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" [(ngModel)]="confirm_password" name="password" class="form-control" id="floatingPassword" placeholder="Contraseña" required="required">
+                    <label for="floatingInput">Contraseña</label>
+                </div>
+
+                <div class="text-center d-grid">
+                    <button (click)="register()" type="submit" class="btn btn-primary rounded-2">Register</button>
+                </div>
+
+            </div> -->
+        </div>
+
+        
+
+    </div>
+</div>
