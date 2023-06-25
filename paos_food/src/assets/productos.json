@@ -1,0 +1,26 @@
+[{
+		"name": "choripan",
+		"price": 1.5,
+		"image": "https://www.laylita.com/recetas/wp-content/uploads/Receta-del-choripan.jpg"
+	},
+	{
+		"name": "sanduche",
+		"price": 1.75,
+		"image": "https://www.maxionline.ec/wp-content/uploads/2019/09/sanduche-de-pernil.jpg"
+	},
+	{
+		"name": "dip de champiñones",
+		"price": 0.75,
+		"image": "https://champinonessetasdecuiva.com/wp-content/uploads/2018/01/dip-champinones-Setas-de-cuiv%C3%A1-1.jpg"
+	},
+	{
+		"name": "fallafels",
+		"price": 2,
+		"image": "https://toriavey.com/images/2011/01/TOA109_18-1.jpeg"
+	},
+	{
+		"name": "pizza buns",
+		"price": 1.5,
+		"image": "https://www.simplystacie.net/wp-content/uploads/2021/03/Pizza-Buns-10-720x720.jpg"
+	}
+]

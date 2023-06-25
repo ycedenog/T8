@@ -1,12 +1,3 @@
-#header {
-
-	background-size:     cover;                    
-	background-repeat:   no-repeat;
-	background-position: center center;
-	height: 30vh;
-	width: 100vw;
-} 
-
 #content {
 	height: 70vh;
 	width: 100vw;	
@@ -17,25 +8,28 @@ h1 {
 	font-size: 1.8rem;
 }
 
-.card-body {
-	padding: 0;
-
+.card-title.fw-bold.text-center {
+	text-align: center;
+    padding-top: 15px;
 }
 
 a {
 	text-decoration: none;
 }
 
-mat-toolbar{
-	background-color:transparent
+.col-6.col-md-2 {
+	width: 200px;
+	margin: 20px;
+
 }
 
-mat-toolbar button{
-	background-color:transparent;
-	border-color: transparent;
-	
+.row.mt-3 {
+	align-items: center;
 }
 
-mat-icon{
-	color: white;
+.img-fluid.rounded-start {
+	height: 270px;
+    position: relative;
+    overflow: hidden;
+    background-position: center center;
 }

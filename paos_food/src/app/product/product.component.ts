@@ -13,7 +13,7 @@ export class ProductComponent {
   constructor() {
     let productos=JSON.parse(localStorage.getItem('productos')!);
 
-    const array=Object.values(productos.data);
+    const array=Object.values(productos);
 
     if(productos){
       let arregloCorrec=array as Producto[];

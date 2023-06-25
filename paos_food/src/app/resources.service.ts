@@ -8,7 +8,7 @@ export class ResourcesService {
   constructor(private http: HttpClient) { }
 
   getData() {
-    return this.http.get('Aqui va la api')
+    return this.http.get<any>('assets/productos.json')
   }
   
   
