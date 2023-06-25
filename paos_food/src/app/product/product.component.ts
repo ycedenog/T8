@@ -22,7 +22,7 @@ export class ProductComponent {
         let parsed_products=array as Producto[];
         this.starters = parsed_products.filter((product: Producto)=>{return product.category==="Starter"})
         this.breakfast = parsed_products.filter((product: Producto)=>{return product.category==="Breakfast"})
-        this.lunch = parsed_products.filter((product: Producto)=>{return product.category==="Luch"})
+        this.lunch = parsed_products.filter((product: Producto)=>{return product.category==="Lunch"})
         this.dinner = parsed_products.filter((product: Producto)=>{return product.category==="Dinner"})
         // this.productos = parsed_products
       }
