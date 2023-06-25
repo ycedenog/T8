@@ -1,16 +1,48 @@
-<main class="container-fluid">
-	<div class="row pt-2">
+<section class="main-content">
+    <div class="container">
 
-		<div class="col-12 col-md-4 text-center justify-content-center mx-auto">
-			<div class="card border-0">
-				<img src="{{product.image}}" class="rounded mx-auto d-block img-thumbnail border-0 shadow-4-strong" alt="{{product.name}}">
-				<div class="card-body">
-					<h5 class="card-title">{{product.name}}</h5>
-					<p class="card-text">{{product.price}}</p>
-				</div>
-			</div>
-		</div>
-		
-			
+    <div class="row">   
+            
+                <div class="food-card">
+                    <div class="food-card_img">
+                        <img src="{{product.image}}" alt="">
+                        <a href="#!"><i class="far fa-heart"></i></a>
+                    </div>
+                    <div class="food-card_content">
+                        <div class="food-card_title-section">
+                            <a href="#!" class="food-card_title">{{product.name}}</a>
+                            <a href="#!" class="food-card_author">Descripcion del producto</a>
+                        </div>
+                        <div class="food-card_bottom-section">
+                            <div class="space-between">
+                                <div>
+                                    <span class="fa fa-fire"></span> 220 - 280 Kcal
+                                </div>
+                                <div class="pull-right">
+                                    <span class="badge badge-success">Veg</span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="space-between">
+                                <div class="food-card_price">
+                                    <span>$ {{product.price}}</span>
+                                </div>
+                                <div class="food-card_order-count">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus"></i></button>
+                                        </div>
+                                        <input type="text" class="form-control input-manulator" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value="0">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary add-btn" type="button" id="button-addon1"><i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
 	</div>
-</main>
+    </div>
+</section>
