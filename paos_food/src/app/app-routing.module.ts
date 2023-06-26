@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'aboutus', component: AboutUsComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'carrito', component: ShopCartComponent},
-  { path: 'productInd/:nombre', component: ProductoIndComponent},
+  { path: 'productInd/:id', component: ProductoIndComponent},
   { path: "**", redirectTo: "home" }
 ]
 
