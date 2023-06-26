@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SingupService } from '../services/client/signup/singup.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -13,14 +15,30 @@ export class RegisterComponent {
   password: string = '';
   confirm_password: string = '';
 
-  constructor(){}
+  constructor(public signupservice: SingupService){}
 
   register() {
-    console.log(this.first_name);
-    console.log(this.last_name);
-    console.log(this.username);
-    console.log(this.email);
-    console.log(this.password);
-    console.log(this.confirm_password);
+    const user = { 
+      username: this.username,
+      password1: this.password,
+      password2: this.confirm_password,
+      email: this.email, 
+      first_name: this.first_name,
+      last_name: this.last_name
+     };
+
+    const httpOptions = {
+      header: new HttpHeaders({
+        'Content-Type' : 'application/json'
+      })
+    };
+
+    this.signupservice.register(user, httpOptions).subscribe((data : any) => {
+      console.log(data);
+    },
+    (error : any) => {
+      console.error(error);
+    }
+    )
   }
 }

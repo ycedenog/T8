@@ -32,8 +32,6 @@ export class LoginComponent {
     (error: any) => {
       console.error(error);
     });
-    console.log(this.username);
-    console.log(this.password);
 
     //this.router.navigate(['/home']);
   }
