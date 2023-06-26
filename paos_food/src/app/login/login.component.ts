@@ -10,8 +10,8 @@ import { HttpHeaders } from '@angular/common/http';
 })
 export class LoginComponent {
 
-  username = '';
-  password = '';
+  username: string = '';
+  password: string = '';
   
   constructor(private router:Router, public loginService: LoginService){
 

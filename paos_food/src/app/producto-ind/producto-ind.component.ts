@@ -16,10 +16,10 @@ export class ProductoIndComponent {
 
     this.route.params.subscribe(params => {
 
-      const id:string = params['id'];
+      let id:string = params['id'];
 
       this.productService.getProductsById(id).subscribe((res: any)=>{
-        const product:Producto = res["product"] as Producto
+        let product:Producto = res["product"] as Producto
         this.product = product;
 
       })

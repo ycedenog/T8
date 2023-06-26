@@ -8,12 +8,12 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  first_name = '';
-  last_name = '';
-  username = '';
-  email = '';
-  password = '';
-  confirm_password = '';
+  first_name: string = '';
+  last_name: string = '';
+  username: string = '';
+  email: string = '';
+  password: string = '';
+  confirm_password: string = '';
 
   constructor(public signupservice: SingupService){}
 
