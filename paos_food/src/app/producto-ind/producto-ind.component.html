@@ -1,11 +1,11 @@
 <section class="main-content">
     <div class="container">
 
-    <div class="row">   
-            
+    <div class="row">
+
                 <div class="food-card">
                     <div class="food-card_img">
-                        <img src="{{product.image}}" alt="">
+                        <img src="{{product.image_base64}}" alt="">
                         <a href="#!"><i class="far fa-heart"></i></a>
                     </div>
                     <div class="food-card_content">
@@ -30,19 +30,26 @@
                                 <div class="food-card_order-count">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <button class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus"></i></button>
+                                            <button (click)="decrement_product_count()" class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus">-</i></button>
                                         </div>
-                                        <input type="text" class="form-control input-manulator" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value="0">
+                                        <input type="text" class="form-control input-manulator" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" value="{{item_count}}">
+                                        <!-- <span>{{item_count}}</span> -->
                                         <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary add-btn" type="button" id="button-addon1"><i class="fa fa-plus"></i></button>
+                                            <button (click)="increment_product_count()" class="btn btn-outline-secondary add-btn" type="button" id="button-addon1"><i class="fa fa-plus">+</i></button>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="food-card_price">
+                                    <span>total $ {{total}}</span>
+                                </div>
+                                <div class="food-card_price">
+                                  <button (click)="add_to_cart()" class="btn btn-outline-primary">Agregar al carrito</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            
+
 	</div>
     </div>
 </section>
