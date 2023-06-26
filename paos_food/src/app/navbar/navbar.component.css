@@ -1,20 +1,47 @@
-nav {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.container {
+  background-color: #343a40;
+  color: #fff;
+  padding: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-lg-3,
+.col-lg-6 {
+  padding: 10px;
+}
+
+.navbar__logo {
+  /* Estilos para tu logo */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar__menu {
+  list-style: none;
   display: flex;
   justify-content: center;
+  padding: 0;
 }
 
-ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.navbar__menu-item {
+  margin-right: 10px;
 }
 
-li {
-  margin: 0 10px;
-}
-
-a {
+.navbar__menu-item a {
+  color: #fff;
   text-decoration: none;
-  color: #333;
+  padding: 5px;
+}
+
+.navbar__menu-item a:hover,
+.navbar__menu-item a.routerLinkActive {
+  background-color: #fff;
+  color: #343a40;
+  border-radius: 5px;
 }

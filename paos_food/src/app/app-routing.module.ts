@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'aboutus', component: AboutUsComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'carrito', component: ShopCartComponent},
-  { path: 'productInd/:nombre', component: ProductoIndComponent}
+  { path: 'productInd/:nombre', component: ProductoIndComponent},
+  { path: "**", redirectTo: "home" }
 ]
 
 @NgModule({
