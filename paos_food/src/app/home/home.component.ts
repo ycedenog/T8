@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit{
   ngOnInit() {
     this.resourcesService.getData().subscribe(response => {
       
-      let productos = localStorage.getItem("productos");
+      const productos = localStorage.getItem("productos");
       if(!productos) {
         localStorage.setItem("productos", JSON.stringify(response));
       }
