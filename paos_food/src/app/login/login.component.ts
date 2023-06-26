@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/client/login/login.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -8,16 +10,31 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  email: string = '';
+  username: string = '';
   password: string = '';
   
-  constructor(private router:Router){
+  constructor(private router:Router, public loginService: LoginService){
 
   }
 
   login() {
-    console.log(this.email);
-    console.log(this.password)
+    const user = { username: this.username, password: this.password };
+
+    const httpOptions = {
+      header: new HttpHeaders({
+        'Content-Type' : 'application/json'
+      })
+    };
+
+    this.loginService.login(user, httpOptions).subscribe((data: any) => {
+      console.log(data);
+    },
+    (error: any) => {
+      console.error(error);
+    });
+    console.log(this.username);
+    console.log(this.password);
+
     //this.router.navigate(['/home']);
   }
 
