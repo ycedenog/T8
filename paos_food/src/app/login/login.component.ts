@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/client/login/login.service';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpClient ,HttpHeaders, HttpResponse } from '@angular/common/http';
+import { TokensService } from '../services/client/tokens/tokens.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
   
-  constructor(private router:Router, public loginService: LoginService){
+  constructor(private router:Router, public loginService: LoginService, public tokenService: TokensService){
 
   }
 
@@ -26,8 +27,13 @@ export class LoginComponent {
       })
     };
 
-    this.loginService.login(user, httpOptions).subscribe((data: any) => {
-      console.log(data);
+    this.loginService.login(user, httpOptions).subscribe((response: HttpResponse<any>) => {
+      console.log("Hola");
+      const csrf = this.tokenService.getCSRFToken;
+      const sessionid = this.tokenService.getSessionID;
+
+      console.log(csrf);
+      
     },
     (error: any) => {
       console.error(error);

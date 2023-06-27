@@ -34,7 +34,7 @@ export class RegisterComponent {
     };
 
     this.signupservice.register(user, httpOptions).subscribe((data : any) => {
-      console.log(data);
+      this.signupservice.setSessionID(data.sessionid);
     },
     (error : any) => {
       console.error(error);

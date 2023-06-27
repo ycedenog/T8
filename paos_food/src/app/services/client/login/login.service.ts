@@ -2,17 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  apiURL = "https://1d02-2800-bf0-8062-efb-6fc1-70ee-e697-d09f.ngrok-free.app/accounts/api_login"
+  apiURL = "https://jorge15042001.pythonanywhere.com/accounts/api_login"
 
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private cookies:CookieService) { }
 
   login(login: any, httpOptions: any): Observable<any> {
     return this.http.post(this.apiURL, login, httpOptions);
   }
+  
+  
 }
