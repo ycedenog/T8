@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { SingupService } from '../services/client/signup/singup.service';
 import { HttpHeaders } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar} from '@angular/material/snack-bar'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +18,7 @@ export class RegisterComponent {
   password: string = '';
   confirm_password: string = '';
 
-  constructor(public signupservice: SingupService){}
+  constructor(public signupservice: SingupService, private dialog: MatDialog, private snackBar: MatSnackBar, private router: Router){}
 
   register() {
     const user = { 
@@ -35,6 +38,11 @@ export class RegisterComponent {
 
     this.signupservice.register(user, httpOptions).subscribe((data : any) => {
       this.signupservice.setSessionID(data.sessionid);
+      this.snackBar.open('Se ha registrado con éxito', 'Cerrar', {
+        duration: 3000,
+      })
+      this.router.navigate(['/login']);
+
     },
     (error : any) => {
       console.error(error);

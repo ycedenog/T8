@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { LoginService } from '../services/client/login/login.service';
 import { HttpClient ,HttpHeaders, HttpResponse } from '@angular/common/http';
 import { TokensService } from '../services/client/tokens/tokens.service';
+import { NgxSpinnerService} from 'ngx-spinner';
+import { MatSnackBar} from '@angular/material/snack-bar'
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,8 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
   
-  constructor(private router:Router, public loginService: LoginService, public tokenService: TokensService){
+  constructor(private router:Router, public loginService: LoginService, public tokenService: TokensService,
+    private spinner: NgxSpinnerService, private snackBar: MatSnackBar){
 
   }
 
@@ -28,18 +31,24 @@ export class LoginComponent {
     };
 
     this.loginService.login(user, httpOptions).subscribe((response: HttpResponse<any>) => {
-      console.log("Hola");
       const csrf = this.tokenService.getCSRFToken;
       const sessionid = this.tokenService.getSessionID;
 
-      console.log(csrf);
+      console.log(response);
+      
+      const code = 200;
+
+      if (code === 200){
+        this.spinner.hide();
+        this.router.navigate(['/home']);
+      }
       
     },
     (error: any) => {
-      console.error(error);
+      this.snackBar.open('Usuario o contraseña incorrecta', 'Cerrar', {
+        duration: 3000,
+      })
     });
-
-    //this.router.navigate(['/home']);
   }
 
 }

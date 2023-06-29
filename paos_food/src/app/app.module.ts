@@ -20,6 +20,9 @@ import { RegisterComponent } from './register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { MatDialogModule} from '@angular/material/dialog';
+import { PopupComponent } from './popup/popup.component'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,7 @@ import { CookieService } from 'ngx-cookie-service';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import { CookieService } from 'ngx-cookie-service';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
