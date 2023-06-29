@@ -14,7 +14,7 @@ To deploy the Front-End in the network, the following steps were followed:
 
 3. It is necessary to create an account at https://www.pythonanywhere.com/. By having created the account we will have the functionalities. We access the “Files” option in the upper right section.
 
-    ![img1](T8/img/img1.jpg)
+    ![img1](../img/img1.jpg)
 
 4. In the upper right section you can see a directory path so we will have to navigate to the root folder "/".
 
