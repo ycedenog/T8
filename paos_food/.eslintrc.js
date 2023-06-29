@@ -1,26 +1,19 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
-    es2021: true
+    node: true,
   },
-  extends: 'standard-with-typescript',
-  overrides: [
-    {
-      env: {
-        node: true
-      },
-      files: [
-        '.eslintrc.{js,cjs}'
-      ],
-      parserOptions: {
-        sourceType: 'script'
-      }
-    }
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:angular/johnpapa',
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module'
+    ecmaVersion: 2021,
+    sourceType: 'module',
   },
+  plugins: ['@typescript-eslint', 'angular'],
   rules: {
-  }
-}
+  },
+};

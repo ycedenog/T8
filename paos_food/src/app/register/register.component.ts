@@ -11,12 +11,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  first_name: string = '';
-  last_name: string = '';
-  username: string = '';
-  email: string = '';
-  password: string = '';
-  confirm_password: string = '';
+  first_name = '';
+  last_name = '';
+  username = '';
+  email = '';
+  password = '';
+  confirm_password= '';
 
   constructor(public signupservice: SingupService, private dialog: MatDialog, private snackBar: MatSnackBar, private router: Router){}
 
