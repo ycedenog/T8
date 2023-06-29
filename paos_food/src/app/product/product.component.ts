@@ -16,10 +16,10 @@ export class ProductComponent {
   //Filtro de la api a componentes individuales del producto
   constructor(public ProductService: ProductService) {
     this.ProductService.getProduct().subscribe((res:any)=>{
-      let products = res["products"]//Object.values(res)
+      const products = res["products"]//Object.values(res)
       const array=Object.values(products);
       if (products){
-        let parsed_products=array as Producto[];
+        const parsed_products=array as Producto[];
         this.starters = parsed_products.filter((product: Producto)=>{return product.category==="Starter"})
         this.breakfast = parsed_products.filter((product: Producto)=>{return product.category==="Breakfast"})
         this.lunch = parsed_products.filter((product: Producto)=>{return product.category==="Lunch"})

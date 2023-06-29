@@ -38,10 +38,10 @@ export class ProductoIndComponent {
 
     this.route.params.subscribe(params => {
 
-      let id: string = params['id'];
+      const id: string = params['id'];
 
       this.productService.getProductsById(id).subscribe((res: any) => {
-        let product: Producto = res["product"] as Producto
+        const product: Producto = res["product"] as Producto
         this.product = product;
 
       })

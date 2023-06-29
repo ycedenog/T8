@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/client/login/login.service';
-import { HttpClient ,HttpHeaders, HttpResponse } from '@angular/common/http';
+import {HttpHeaders, HttpResponse } from '@angular/common/http';
 import { TokensService } from '../services/client/tokens/tokens.service';
 
 @Component({
@@ -11,8 +11,8 @@ import { TokensService } from '../services/client/tokens/tokens.service';
 })
 export class LoginComponent {
 
-  username: string = '';
-  password: string = '';
+  username= '';
+  password = '';
   
   constructor(private router:Router, public loginService: LoginService, public tokenService: TokensService){
 
