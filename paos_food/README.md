@@ -42,4 +42,4 @@ To deploy the Front-End in the network, the following steps were followed:
 
 10. We select the address that has been assigned to us and we will be able to see our app deployed.
 
-![img7](../img/img7.png)
+![img7](../img/img7.jpg)
