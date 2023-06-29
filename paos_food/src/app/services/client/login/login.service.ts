@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({

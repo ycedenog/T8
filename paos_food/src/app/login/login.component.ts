@@ -31,11 +31,7 @@ export class LoginComponent {
     };
 
     this.loginService.login(user, httpOptions).subscribe((response: HttpResponse<any>) => {
-      const csrf = this.tokenService.getCSRFToken;
-      const sessionid = this.tokenService.getSessionID;
-
       console.log(response);
-      
       const code = 200;
 
       if (code === 200){
@@ -48,6 +44,7 @@ export class LoginComponent {
       this.snackBar.open('Usuario o contraseña incorrecta', 'Cerrar', {
         duration: 3000,
       })
+      console.log(error);
     });
   }
 
