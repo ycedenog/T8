@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/client/login/login.service';
-import {HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { TokensService } from '../services/client/tokens/tokens.service';
-import { NgxSpinnerService} from 'ngx-spinner';
-import { MatSnackBar} from '@angular/material/snack-bar'
+import { NgxSpinnerService } from 'ngx-spinner';
+import { MatSnackBar } from '@angular/material/snack-bar'
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -13,11 +14,11 @@ import { MatSnackBar} from '@angular/material/snack-bar'
 })
 export class LoginComponent {
 
-  username= '';
+  username = '';
   password = '';
-  
-  constructor(private router:Router, public loginService: LoginService, public tokenService: TokensService,
-    private spinner: NgxSpinnerService, private snackBar: MatSnackBar){
+
+  constructor(private router: Router, public loginService: LoginService, public tokenService: TokensService,
+    private spinner: NgxSpinnerService, private snackBar: MatSnackBar) {
 
   }
 
@@ -26,26 +27,38 @@ export class LoginComponent {
 
     const httpOptions = {
       header: new HttpHeaders({
-        'Content-Type' : 'application/json'
-      })
+         'Content-Type': 'application/json',
+      }),
+      observe: 'response',
+      responseType: 'text',
+      withCredentials: true,
     };
 
     this.loginService.login(user, httpOptions).subscribe((response: HttpResponse<any>) => {
-      console.log(response);
-      const code = 200;
 
-      if (code === 200){
-        this.spinner.hide();
-        this.router.navigate(['/home']);
+
+      if (response.status !== 200) {
+        this.snackBar.open('Inicio de sesión fallido', 'Cerrar', {
+          duration: 3000,
+        });
       }
-      
+      // console.log(response.headers.getAll("Set-Cookie"))
+      console.log(response)
+      this.spinner.hide();
+
+      for (let header of response.headers.keys()){
+        console.log(header, response.headers.getAll(header));
+      }
+
+      this.router.navigate(['/home']);
+
     },
-    (error: any) => {
-      this.snackBar.open('Usuario o contraseña incorrecta', 'Cerrar', {
-        duration: 3000,
-      })
-      console.log(error);
-    });
+      (error: any) => {
+        this.snackBar.open('Usuario o contraseña incorrecta', 'Cerrar', {
+          duration: 3000,
+        })
+        console.log(error);
+      });
   }
 
 }
