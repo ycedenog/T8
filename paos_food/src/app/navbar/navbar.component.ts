@@ -37,23 +37,19 @@ export class NavbarComponent {
     this.userDataService.userData(httpOptions).subscribe((response: HttpResponse<any>) => {
 
       this.isAuthenticatedObs.subscribe(isAuth=>{
-        console.log("calling callback")
         if (isAuth){
           this.loggedin = true;
           this.username = response.body["user-data"]["username"]
         }
       })
-      console.log("status ", response.status)
       if (response.status !== 200) {
         this._isAuthenticatedSubject.next(false);
         return;
       }
-      console.log("success", response.body["success"])
       if (!response.body["success"]){
         this._isAuthenticatedSubject.next(false);
         return;
       }
-      console.log("authenticated", response.body["authenticated"])
       if (!response.body["authenticated"]){
         this._isAuthenticatedSubject.next(false);
       }
