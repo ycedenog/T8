@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class LoginService {
-  apiURL = "https://jorge15042001.pythonanywhere.com/accounts/api_login"
+  apiURL = "/accounts/api_login"
 
   
   constructor(private http: HttpClient, private cookies:CookieService) { }
