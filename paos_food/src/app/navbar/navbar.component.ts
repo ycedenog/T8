@@ -31,6 +31,7 @@ export class NavbarComponent {
 
     const httpOptions = {
       header: headers,
+      observe: 'response',
       withCredentials: true,
     };
     this.userDataService.userData(httpOptions).subscribe((response: HttpResponse<any>) => {
