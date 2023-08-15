@@ -12,7 +12,8 @@ import { TokensService } from '../services/client/tokens/tokens.service';
 })
 export class NavbarComponent {
   selectedItem = '';
-  logedin: boolean = false;
+  loggedin: boolean = false;
+  username: string = ""
   constructor(private userDataService: UserDataService, public tokenService: TokensService) {
 
   }
@@ -26,15 +27,20 @@ export class NavbarComponent {
 
     const httpOptions = {
       header: headers,
-      observe: 'response',
       withCredentials: true,
     };
     this.userDataService.userData(httpOptions).subscribe((response: HttpResponse<any>) => {
       this.tokenService
 
-      console.log(response.body);
       if (response.status !== 200) {
         return;
+      }
+      if (!response.body["success"]){
+        return;
+      }
+      if (!response.body["authenticated"]){
+        this.loggedin = true;
+        this.username = response.body["user-data"]["username"]
       }
     })
   }
