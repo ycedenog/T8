@@ -49,9 +49,10 @@ export class NavbarComponent {
         this._isAuthenticatedSubject.next(false);
         return;
       }
-      if (!response.body["authenticated"]){
+      if (response.body["authenticated"]){
         this._isAuthenticatedSubject.next(true);
       }
     })
+
   }
 }
