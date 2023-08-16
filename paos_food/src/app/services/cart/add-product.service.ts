@@ -35,6 +35,6 @@ export class AddProductService {
       observe: 'response',
       withCredentials: true,
     };
-    return this.http.post(this.apiURL, { "product": product_id, "quantity": quantity }, httpOptions);
+    return this.http.post(`${this.apiURL}/`, { "product": product_id, "quantity": quantity }, httpOptions);
   }
 }
