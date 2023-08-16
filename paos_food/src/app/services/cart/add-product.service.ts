@@ -28,12 +28,12 @@ export class AddProductService {
     console.log(`csrftoken=${this.tokenService.getCSRFToken()};sessionid=${this.tokenService.getSessionID()}`);
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Cookie': `csrftoken=${this.tokenService.getCSRFToken()};sessionid=${this.tokenService.getSessionID()}`,
+      // 'Cookie': `csrftoken=${this.tokenService.getCSRFToken()};sessionid=${this.tokenService.getSessionID()}`,
       'X-CSRFToken':this.tokenService.getCSRFToken()
     })
 
     const httpOptions:any = {
-      header: headers,
+      headers: headers,
       observe: 'response',
       withCredentials: true,
     };
