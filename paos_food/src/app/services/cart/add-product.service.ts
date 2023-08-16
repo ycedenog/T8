@@ -25,6 +25,7 @@ export class AddProductService {
     return this.http.get(`${this.apiURL}/`, httpOptions);
   }
   addToCart(product_id: number, quantity: number): Observable<any> {
+    console.log(`csrftoken=${this.tokenService.getCSRFToken()};sessionid=${this.tokenService.getSessionID()}`);
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Cookie': `csrftoken=${this.tokenService.getCSRFToken()};sessionid=${this.tokenService.getSessionID()}`

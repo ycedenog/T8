@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class LoginService {
-  apiURL = "/accounts/api_login"
+  apiURL = "/accounts/api_login/"
 
   
   constructor(private http: HttpClient, private cookies:CookieService) { }
