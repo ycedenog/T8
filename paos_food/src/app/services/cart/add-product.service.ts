@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AddProductService {
-  apiURL = "http://127.0.0.1:8000/api/cart"
+  apiURL = "/api/cart"
 
   constructor(private http:HttpClient) { }
 
