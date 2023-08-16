@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  apiURL = "https://jorge15042001.pythonanywhere.com/api/product/"
+  apiURL = "/api/product/"
 
   constructor(private http:HttpClient) { }
 
