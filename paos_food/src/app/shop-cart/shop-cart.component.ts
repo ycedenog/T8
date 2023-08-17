@@ -10,6 +10,7 @@ import { HttpResponse } from '@angular/common/http';
 })
 export class ShopCartComponent {
   cart!: CartItem[];
+  total_payment: number=0;
 
   constructor(public cartService: AddProductService) {
     this.cartService.getCart().subscribe((res:  HttpResponse<any>) => {
@@ -17,6 +18,9 @@ export class ShopCartComponent {
         return;
       }
       this.cart = res.body["cart"] as CartItem[];
+      for (let cartItem of this.cart){
+        this.total_payment += cartItem.quantity * cartItem.product.price;
+      }
     })
   }
 

@@ -13,6 +13,13 @@
                 <tbody>
                         <tr class="header-shoping" *ngFor="let cartItem of cart" [cartItem]="cartItem" app-item-cart></tr>
                         <!-- <app-item-cart></app-item-cart> -->
+                        <tr>
+                          <td>Total</td>
+                          <td></td>
+                          <td></td>
+                          <td>{{total_payment}}</td>
+                          <td></td>
+                        </tr>
                 </tbody>
 
             </table>
