@@ -11,23 +11,32 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class ShopCartComponent {
   cart!: CartItem[];
-  total_payment: number=0;
+  total_payment: number = 0;
 
   public _removeCartItemSub: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public removeCartItemObs: Observable<number> = this._removeCartItemSub.asObservable();
 
+  public _updateCartItemSub: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  public updateCartItemObs: Observable<number> = this._updateCartItemSub.asObservable();
+
   constructor(public cartService: AddProductService) {
-    this.cartService.getCart().subscribe((res:  HttpResponse<any>) => {
-      if (res.status != 200){
+    this.cartService.getCart().subscribe((res: HttpResponse<any>) => {
+      if (res.status != 200) {
         return;
       }
       this.cart = res.body["cart"] as CartItem[];
-      for (let cartItem of this.cart){
+      for (let cartItem of this.cart) {
         this.total_payment += cartItem.quantity * cartItem.product.price;
       }
 
-      this.removeCartItemObs.subscribe((cart_item_id:number)=>{
-        this.cart = this.cart.filter((cart_item:CartItem)=>cart_item_id!==cart_item.id)
+      this.removeCartItemObs.subscribe((cart_item_id: number) => {
+        this.cart = this.cart.filter((cart_item: CartItem) => cart_item_id !== cart_item.id)
+      })
+      this.updateCartItemObs.subscribe((cart_item_id: number) => {
+        this.total_payment = 0;
+        for (let cartItem of this.cart) {
+          this.total_payment += cartItem.quantity * cartItem.product.price;
+        }
       })
     })
   }
