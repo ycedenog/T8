@@ -11,6 +11,20 @@ export class AddProductService {
 
   constructor(private http: HttpClient, public tokenService: TokensService) { }
 
+  delete(cart_item_id:number):Observable<any>{
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Cookie': `csrftoken=${this.tokenService.getCSRFToken()};sessionid=${this.tokenService.getSessionID()}`
+    })
+
+    const httpOptions: any = {
+      header: headers,
+      observe: 'response',
+      withCredentials: true,
+    };
+    return this.http.delete(`this.apiURL${cart_item_id}/`, httpOptions)
+  }
+
   getCart(): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
