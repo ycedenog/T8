@@ -29,3 +29,9 @@
   - *File Type:* IMAGE
   - *Participants:* Product Owner: Álvaro Escandón Avilés and Team Member in charge of communications: Pablo Herrera
   - *Date:* June 22, 2023
+
+- [MEETING FORM 3:](https://github.com/ycedenog/T8/blob/master/Communications/Acta%20de%20Reuni%C3%B3n%203.pdf)
+  - *Description:* Proof of meeting. In it details the participants of the meeting, as well as points treated in such meeting. This corresponds to the meeting done throught the sprint previous to the delivery of the project.
+  - *File Type:* PDF
+  - *Participants:* Product Owner: Álvaro Escandón Avilés and all of T8 participants
+  - *Date:* August 17, 2023
