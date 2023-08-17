@@ -31,18 +31,19 @@ export class ShopCartComponent {
 
       this.removeCartItemObs.subscribe((cart_item_id: number) => {
         this.cart = this.cart.filter((cart_item: CartItem) => cart_item_id !== cart_item.id)
+        this.total_payment = 0;
         for (let cartItem of this.cart) {
           this.total_payment += cartItem.quantity * cartItem.product.price;
         }
       })
       this.updateCartItemObs.subscribe((cart_item_updated: Object) => {
         const new_cart_item = cart_item_updated as CartItem;
-        this.total_payment = 0;
         for (let cartItem of this.cart) {
-          if (cartItem.id === new_cart_item.id){
+          if (cartItem.id === new_cart_item.id) {
             cartItem.quantity = new_cart_item.quantity;
           }
         }
+        this.total_payment = 0;
         for (let cartItem of this.cart) {
           this.total_payment += cartItem.quantity * cartItem.product.price;
         }
