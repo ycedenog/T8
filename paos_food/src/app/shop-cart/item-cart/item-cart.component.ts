@@ -10,18 +10,26 @@ import { AddProductService } from 'src/app/services/cart/add-product.service';
 })
 export class ItemCartComponent {
   @Input() cartItem!: CartItem;
+  @Input() deleteItemNotifier!: BehaviorSubject<number>;
 
   constructor(public cartService:AddProductService){
   }
 
   delete(){
+    this.cartService.delete(this.cartItem.id).subscribe((res:HttpResponse<any>)=>{
+      if(res.status !=200){return;}
+      if(!res.body["success"]){return;}
+      console.log(res.body)
+      // this.cartItem.quantity += 1;
+      this.deleteItemNotifier.next(this.cartItem.id);
+    })
   }
   augmentQuantity(){
     this.cartService.addToCart(this.cartItem.product.id, 1).subscribe((res:HttpResponse<any>)=>{
       if(res.status !=200){return;}
       if(!res.body["success"]){return;}
       console.log(res.body)
-      this.cartItem.quantity += 1;
+      this.cartItem = res.body["product"] as CartItem;
     })
 
   }
