@@ -14,11 +14,11 @@ export class AddProductService {
   delete(cart_item_id:number):Observable<any>{
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Cookie': `csrftoken=${this.tokenService.getCSRFToken()};sessionid=${this.tokenService.getSessionID()}`
+      'X-CSRFToken': this.tokenService.getCSRFToken()
     })
 
     const httpOptions: any = {
-      header: headers,
+      headers: headers,
       observe: 'response',
       withCredentials: true,
     };
@@ -28,11 +28,11 @@ export class AddProductService {
   getCart(): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Cookie': `csrftoken=${this.tokenService.getCSRFToken()};sessionid=${this.tokenService.getSessionID()}`
+      'X-CSRFToken': this.tokenService.getCSRFToken()
     })
 
     const httpOptions: any = {
-      header: headers,
+      headers: headers,
       observe: 'response',
       withCredentials: true,
     };
