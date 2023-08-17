@@ -1,5 +1,6 @@
 import { HttpResponse } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { CartItem } from 'src/app/cart_item';
 import { AddProductService } from 'src/app/services/cart/add-product.service';
 
@@ -38,7 +39,7 @@ export class ItemCartComponent {
       if(res.status !=200){return;}
       if(!res.body["success"]){return;}
       console.log(res.body)
-      this.cartItem.quantity -= 1;
+      this.cartItem = res.body["product"] as CartItem;
     })
   }
 
