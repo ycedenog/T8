@@ -14,10 +14,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <tr class="header-shoping" [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
-                        <tr class="header-shoping" [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
-                        <tr class="header-shoping" [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
-                        <tr class="header-shoping" [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
                         <tr class="header-shoping" *ngFor="let cartItem of cart" [cartItem]="cartItem" [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
                         <!-- <app-item-cart></app-item-cart> -->
                         <tr>
