@@ -1,17 +1,28 @@
-<td>
-  <img src="{{cartItem.product.image_base64}}" alt="">
-    <b>{{cartItem.product.name}}</b>
+<td class="d-flex p-2 justify-content-around">
+  <!-- <img src="{{cartItem.product.image_base64}}" alt=""> -->
+  <img src="{{cartItem.product.image_base64}}" alt="" width="50">
+    <!-- <b>{{cartItem.product.name}}</b> -->
+    <span class="">Bolo</span>
 </td>
-<td>{{cartItem.product.price}}</td>
+<!-- <td>$ {{cartItem.product.price}}</td> -->
+<td>$ 10.10</td>
 <td>
-    <div class="prod-qty">
-        <span (click)="reduceQuantity()">-</span>
-        <input type="text" value="{{cartItem.quantity}}">
-        <span (click)="augmentQuantity()">+</span>
+    <!-- <div class="prod-qty"> -->
+    <div class="food-card_order-count mx-auto">
+        <div class="input-group mx-auto">
+          <div class="input-group-prepend">
+            <button (click)="reduceQuantity()" class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus">-</i></button>
+          </div>
+          <!-- <input type="text" value="{{cartItem.quantity}}"> -->
+          <input class="form-control input-manulator"  type="text" value="{{cartItem.quantity}}">
+          <div class="input-group-prepend">
+            <button (click)="augmentQuantity()" class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i class="fa fa-minus">+</i></button>
+          </div>
+        </div>
     </div>
 </td>
-<td>${{cartItem.product.price*cartItem.quantity}}</td>
+<td>$ {{cartItem.product.price*cartItem.quantity}}</td>
 <td>
-    <button (click)="delete()">Eliminar</button>
+    <button (click)="delete()" class="btn btn-outline-danger">Eliminar</button>
 
 </td>

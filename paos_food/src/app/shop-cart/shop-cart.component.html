@@ -1,23 +1,30 @@
+<app-navbar></app-navbar>
+<br>
+<br>
 <section class="section-shoping-cart">
     <div class="container w-100">
         <div class="row">
             <table class="table-item">
                 <thead>
                     <tr class="header-shoping">
-                        <th class="shoping_product">Producto</th>
+                        <th class="">Producto</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
                         <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
+                        <tr class="header-shoping" [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
+                        <tr class="header-shoping" [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
+                        <tr class="header-shoping" [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
+                        <tr class="header-shoping" [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
                         <tr class="header-shoping" *ngFor="let cartItem of cart" [cartItem]="cartItem" [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
                         <!-- <app-item-cart></app-item-cart> -->
                         <tr>
-                          <td>Total</td>
                           <td></td>
+                          <td><b>Total</b></td>
                           <td></td>
-                          <td>$ {{total_payment}}</td>
+                          <td><b>$ {{total_payment}}</b></td>
                           <td></td>
                         </tr>
                 </tbody>
