@@ -12,7 +12,7 @@ import { AddProductService } from 'src/app/services/cart/add-product.service';
 export class ItemCartComponent {
   @Input() cartItem!: CartItem;
   @Input() deleteItemNotifier!: BehaviorSubject<number>;
-  @Input() updateItemNotifier!: BehaviorSubject<number>;
+  @Input() updateItemNotifier!: BehaviorSubject<object>;
 
   constructor(public cartService:AddProductService){
   }
@@ -32,7 +32,7 @@ export class ItemCartComponent {
       if(!res.body["success"]){return;}
       console.log(res.body)
       this.cartItem = res.body["product"] as CartItem;
-      this.updateItemNotifier.next(this.cartItem.id);
+      this.updateItemNotifier.next(this.cartItem);
 
     })
 
@@ -47,7 +47,7 @@ export class ItemCartComponent {
         return;
       }
       this.cartItem = res.body["product"] as CartItem;
-      this.updateItemNotifier.next(this.cartItem.id);
+      this.updateItemNotifier.next(this.cartItem);
     })
   }
 
