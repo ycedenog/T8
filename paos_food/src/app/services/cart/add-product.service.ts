@@ -7,7 +7,7 @@ import { TokensService } from '../client/tokens/tokens.service';
   providedIn: 'root'
 })
 export class AddProductService {
-  apiURL = "/api/cart"
+  apiURL = "/api/cart/"
 
   constructor(private http: HttpClient, public tokenService: TokensService) { }
 
@@ -17,26 +17,26 @@ export class AddProductService {
       'Cookie': `csrftoken=${this.tokenService.getCSRFToken()};sessionid=${this.tokenService.getSessionID()}`
     })
 
-    const httpOptions:any = {
+    const httpOptions: any = {
       header: headers,
       observe: 'response',
       withCredentials: true,
     };
-    return this.http.get(`${this.apiURL}/`, httpOptions);
+    return this.http.get(this.apiURL, httpOptions);
   }
   addToCart(product_id: number, quantity: number): Observable<any> {
     console.log(`csrftoken=${this.tokenService.getCSRFToken()};sessionid=${this.tokenService.getSessionID()}`);
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       // 'Cookie': `csrftoken=${this.tokenService.getCSRFToken()};sessionid=${this.tokenService.getSessionID()}`,
-      'X-CSRFToken':this.tokenService.getCSRFToken()
+      'X-CSRFToken': this.tokenService.getCSRFToken()
     })
 
-    const httpOptions:any = {
+    const httpOptions: any = {
       headers: headers,
       observe: 'response',
       withCredentials: true,
     };
-    return this.http.post(`${this.apiURL}/`, { "product": product_id, "quantity": quantity }, httpOptions);
+    return this.http.post(this.apiURL, { "product": product_id, "quantity": quantity }, httpOptions);
   }
 }
