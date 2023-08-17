@@ -16,8 +16,8 @@ export class ShopCartComponent {
   public _removeCartItemSub: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   public removeCartItemObs: Observable<number> = this._removeCartItemSub.asObservable();
 
-  public _updateCartItemSub: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  public updateCartItemObs: Observable<number> = this._updateCartItemSub.asObservable();
+  public _updateCartItemSub: BehaviorSubject<Object> = new BehaviorSubject<Object>({});
+  public updateCartItemObs: Observable<Object> = this._updateCartItemSub.asObservable();
 
   constructor(public cartService: AddProductService) {
     this.cartService.getCart().subscribe((res: HttpResponse<any>) => {
@@ -31,9 +31,18 @@ export class ShopCartComponent {
 
       this.removeCartItemObs.subscribe((cart_item_id: number) => {
         this.cart = this.cart.filter((cart_item: CartItem) => cart_item_id !== cart_item.id)
+        for (let cartItem of this.cart) {
+          this.total_payment += cartItem.quantity * cartItem.product.price;
+        }
       })
-      this.updateCartItemObs.subscribe((cart_item_id: number) => {
+      this.updateCartItemObs.subscribe((cart_item_updated: Object) => {
+        const new_cart_item = cart_item_updated as CartItem;
         this.total_payment = 0;
+        for (let cartItem of this.cart) {
+          if (cartItem.id === new_cart_item.id){
+            cartItem.quantity = new_cart_item.quantity;
+          }
+        }
         for (let cartItem of this.cart) {
           this.total_payment += cartItem.quantity * cartItem.product.price;
         }
