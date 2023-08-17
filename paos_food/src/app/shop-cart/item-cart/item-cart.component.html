@@ -5,12 +5,13 @@
 <td>{{cartItem.product.price}}</td>
 <td>
     <div class="prod-qty">
-        <span>-</span>
+        <span (click)="reduceQuantity()">-</span>
         <input type="text" value="{{cartItem.quantity}}">
-        <span>+</span>
+        <span (click)="augmentQuantity()">+</span>
     </div>
 </td>
 <td>${{cartItem.product.price*cartItem.quantity}}</td>
 <td>
-    <span>X</span>
+    <button (click)="delete()">Eliminar</button>
+
 </td>
