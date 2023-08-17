@@ -1,16 +1,16 @@
 <td>
     <img src="" alt="">
-    <b>Producto 1</b>
+    <b>{{cartItem.product.name}}</b>
 </td>
-<td>$55.00</td>
+<td>{{cartItem.product.price}}</td>
 <td>
     <div class="prod-qty">
         <span>-</span>
-        <input type="text" value="1">
+        <input type="text" value="{{cartItem.quantity}}">
         <span>+</span>
     </div>
 </td>
-<td>"$110.00"</td>
+<td>${{cartItem.product.price*cartItem.quantity}}</td>
 <td>
     <span>X</span>
 </td>
