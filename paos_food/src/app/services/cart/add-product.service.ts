@@ -22,7 +22,7 @@ export class AddProductService {
       observe: 'response',
       withCredentials: true,
     };
-    return this.http.delete(`this.apiURL${cart_item_id}/`, httpOptions)
+    return this.http.delete(`${this.apiURL}${cart_item_id}/`, httpOptions)
   }
 
   getCart(): Observable<any> {
