@@ -11,7 +11,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <tr class="header-shoping" *ngFor="let cartItem of cart" [cartItem]="cartItem" app-item-cart></tr>
+                        <tr class="header-shoping" *ngFor="let cartItem of cart" [cartItem]="cartItem" [deleteItemNotifier]="_removeCartItemSub" app-item-cart></tr>
                         <!-- <app-item-cart></app-item-cart> -->
                         <tr>
                           <td>Total</td>
