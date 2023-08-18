@@ -3,6 +3,8 @@ import { AddProductService } from '../services/cart/add-product.service';
 import { CartItem } from '../cart_item';
 import { HttpResponse } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { OrderService } from '../services/order/order.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop-cart',
@@ -11,6 +13,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class ShopCartComponent {
   cart!: CartItem[];
+  shipping_address!: string;
   total_payment: number = 0;
 
   public _removeCartItemSub: BehaviorSubject<number> = new BehaviorSubject<number>(0);
@@ -19,7 +22,25 @@ export class ShopCartComponent {
   public _updateCartItemSub: BehaviorSubject<Object> = new BehaviorSubject<Object>({});
   public updateCartItemObs: Observable<Object> = this._updateCartItemSub.asObservable();
 
-  constructor(public cartService: AddProductService) {
+
+  shippingAddressInputEventCallback(event: any) {
+    this.shipping_address = event.target.value;
+  }
+  processOrder(){
+      this.router.navigate(["/home"])
+    this.orderservice.orderCart(this.shipping_address).subscribe((response: HttpResponse<any>)=>{
+      if (response.status != 200) {
+        return;
+      }
+      if (!response.body["success"]) {
+        return;
+      }
+      this.router.navigate(["/cart"])
+
+    })
+  }
+
+  constructor(public cartService: AddProductService, public orderservice:OrderService, private router:Router) {
     this.cartService.getCart().subscribe((res: HttpResponse<any>) => {
       if (res.status != 200) {
         return;

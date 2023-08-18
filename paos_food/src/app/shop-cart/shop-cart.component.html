@@ -1,36 +1,58 @@
 <app-navbar></app-navbar>
 <br>
 <br>
-<section class="section-shoping-cart">
-    <div class="container w-100">
-        <div class="row">
-            <table class="table-item">
-                <thead>
-                    <tr class="header-shoping">
-                        <th></th>
-                        <th>Precio</th>
-                        <th class="">Producto</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr class="header-shoping" *ngFor="let cartItem of cart" [cartItem]="cartItem" [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
-                        <!-- <app-item-cart></app-item-cart> -->
-                        <tr>
-                          <td></td>
-                          <td><b>Total</b></td>
-                          <td></td>
-                          <td><b>$ {{total_payment}}</b></td>
-                          <td></td>
-                        </tr>
-                </tbody>
+<section class="container section-shoping-cart">
+  <div class="tab-header text-center">
+    <h3>Carrito</h3>
+  </div>
+  <div class="container w-100">
+    <div class="row">
+      <table class="table-item">
+        <thead>
+          <tr class="header-shoping">
+            <th></th>
+            <th>Precio</th>
+            <th class="">Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="header-shoping" *ngFor="let cartItem of cart" [cartItem]="cartItem"
+            [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
+          <!-- <app-item-cart></app-item-cart> -->
+          <tr>
+            <td></td>
+            <td><b>Total</b></td>
+            <td></td>
+            <td><b>$ {{total_payment}}</b></td>
+            <td></td>
+          </tr>
+        </tbody>
 
-            </table>
-        </div>
-        <div class="row"></div>
+      </table>
     </div>
+    <div class="row"></div>
+  </div>
 </section>
+<section class="container">
+  <div class="tab-header text-center">
+    <h3>Finalizar compra</h3>
+  </div>
 
+  <div class="w-50 mx-auto">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Dirección de envío</span>
+      </div>
+      <input type="text" class="form-control" placeholder="" aria-label="Username"
+        aria-describedby="basic-addon1" (keyup)="shippingAddressInputEventCallback($event)">
+    </div>
 
+    <div class="w-100 d-flex flex-row justify-content-center">
+      <button (click)="processOrder()" class="btn btn-primary" >Finalizar compra</button>
+    </div>
+  </div>
+
+</section>
