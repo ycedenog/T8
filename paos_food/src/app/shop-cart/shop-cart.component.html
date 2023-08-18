@@ -11,22 +11,23 @@
         <thead>
           <tr class="header-shoping">
             <th></th>
-            <th>Precio</th>
-            <th class="">Producto</th>
+            <th>Producto</th>
             <th>Precio</th>
             <th>Cantidad</th>
             <th>Total</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr class="header-shoping" *ngFor="let cartItem of cart" [cartItem]="cartItem"
             [deleteItemNotifier]="_removeCartItemSub" [updateItemNotifier]="_updateCartItemSub" app-item-cart></tr>
           <!-- <app-item-cart></app-item-cart> -->
-          <tr>
+          <tr >
             <td></td>
-            <td><b>Total</b></td>
+            <td><h2>Total</h2></td>
             <td></td>
-            <td><b>$ {{total_payment}}</b></td>
+            <td></td>
+            <td><h2>$ {{total_payment}}</h2></td>
             <td></td>
           </tr>
         </tbody>
